@@ -1,4 +1,4 @@
-package annmj.chapter3;
+package annmj.chapter3.TheLawOfNumbers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class TheLawOfNumbers {
-
+public class Solution {
     static int N, M, K;
     static int[] arr;
     static int answer;
