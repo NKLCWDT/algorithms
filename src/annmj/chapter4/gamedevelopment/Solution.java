@@ -14,11 +14,11 @@ public class Solution {
     static int[][] graph;
     static boolean[][] visit;
     static int count;
-    static int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {-1, 0}};
+    static int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     static void rotate() {
         // 캐릭터 회전
-        direction = (direction + 1) % 4;
+        direction = (direction - 1) % 4;
 
     }
 
