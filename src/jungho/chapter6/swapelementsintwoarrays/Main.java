@@ -45,7 +45,9 @@ public class Main {
 
     private static void swap() {
         for (int i = 0; i < k; i++) {
-            firstArray[i] = secondArray[i];
+            if(secondArray[i] > firstArray[i]) {
+                firstArray[i] = secondArray[i];
+            }
         }
     }
 
