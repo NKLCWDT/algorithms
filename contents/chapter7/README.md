@@ -258,10 +258,24 @@ public class Main {
         int sum = 0;
         for(int element : arr) {
             if(element > middlePoint) {
-                sum += riceCake - middlePoint;
+                sum += element - middlePoint;
             }
         }
         return sum;
     }
 }
 ```
+
+즉, 다음과 같이 정리할 수 있다. 결정 알고리즘을 구현하는 메서드 안은 이진 탐색 코드가 적용되어 있으며, 이진 탐색 코드에서는 최적화된 값을 구하기 위해 판단을 내려주는 함수를 만들어서 사용한다. 
+실제로 이와 비슷하거나 조금 어려운 수준의 결정 알고리즘을 사용하는 문제들의 풀이 형식을 보면 달라지는 곳은 딱 정해져있다. 최댓값을 구하는지 최솟값을 구하는지에 따라 while 문 내부가 달라지며,
+문제의 조건에 맞는 최적화된 값을 구하기 위해 decisionToFindTheOptimizedValue() 함수의 내부 구현이 달라진다.
+
+```
+func decisionAlgorithm() {
+   Binary Search Algorithm code {
+        func decisionToFindTheOptimizedValue();
+   }
+}
+```
+
+> 단, 결정 알고리즘을 사용하는 모든 문제가 이렇다라는것은 아니다.(맞을 수도 있고 아닐 수도 있고), 하지만 몇몇 문제를 분석해본 결과 떡볶이 문제랑 비슷하거나 조금 더 어려운 수준의 문제는 위와 같은 스타일로 해결할 수 있는 것 같다.
