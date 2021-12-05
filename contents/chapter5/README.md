@@ -189,6 +189,7 @@ public static void bfs(int V){
 }
 ```
 
+### DFS와 BFS의 비교
 
 >참고자료  
 
