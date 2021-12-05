@@ -12,23 +12,23 @@
 ```java
 void sort(int arr[])
 {
-    int n = arr.length;
+int n = arr.length;
 
-    // 한칸씩 정렬되지 않은 array을 돈다.
-    for (int i = 0; i < n-1; i++)
-    {
+// 한칸씩 정렬되지 않은 array을 돈다.
+for (int i = 0; i < n-1; i++){
+    
         // 가장 작은 값을 찾는다.
         int min_idx = i;
-        for (int j = i+1; j < n; j++)
-            if (arr[j] < arr[min_idx])
+        for (int j = i+1; j < n; j++){
+             if (arr[j] < arr[min_idx])
                 min_idx = j;
-
+        }
         // 가장 작은 값과 첫번째 값을 바꾼다.
         int temp = arr[min_idx];
         arr[min_idx] = arr[i];
         arr[i] = temp;
     }
-    }
+}
 ```
 
 ### 선택정렬의 시간 복잡도
@@ -84,47 +84,59 @@ Merge Sort는 더이상 나누어지지 않을 때 까지 반 씩(1/2)분할하
 ![images](/images/chapter6/quickSort.png)
 이렇게 pivot을 정해 정렬을 한 수 재귀함수의 형태로 작성해 구현할 수 있다. 종료조건은 데이터의 개수가 1개인 경우이다. 
 
+> 피봇을 기준으로 왼쪽에는 작은 데이터가 위치, 오른쪽에는 큰 데이터가 위치하도록 하는것을 분할 또는 파티션이라고 한다.
+
+
 ### 퀵 정렬 코드
 ```java
-public class qucikSort {
-    private static void quickSort(int[] arr,int start, int end) {
-        int part=partition(arr,start,end);
-        if(start<part-1) quickSort(arr,start,part-1);
-        if(end>part) quickSort(arr,part,end);
-    }
 
-    private static int partition(int[] arr,int start,int end) {
-        int pivot=arr[(start+end)/2];
-        while(start<=end) {
-            while(arr[start]<pivot) start++;
-            while(arr[end]>pivot) end--;
-            if(start<=end) {
-                swap(arr,start,end);
-                start++;
-                end--;
-            }
-        }
-        return start;
-    }
-
-    private static void swap(int[] arr,int start,int end) {
-        int tmp=arr[start];
-        arr[start]=arr[end];
-        arr[end]=tmp;
-        return;
-    }
-
-
-    public static void main(String[] args) {
-        int[] arr= {7,4,2,8,3,5,1,6,10,9};
-        quickSort(arr,0,arr.length-1);
-        for(int i=0;i<arr.length;i++) {
-            System.out.print(arr[i]+",");
-        }
-    }
-
+//두 원소의 자리를 바꾸는 함수
+static void swap(int[] arr, int i, int j)
+{
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
 
+//마지막 원소를 피봇으로 삼고 피봇을 올바른 위치에 위치시키는 함수이다.피봇보다 작은 원소들은 왼쪽,큰 원소들은 오른쪽
+static int partition(int[] arr, int low, int high)
+{
+      
+    // pivot
+    int pivot = arr[high]; 
+      
+    
+    int i = (low - 1); 
+  
+    for(int j = low; j <= high - 1; j++)
+    {
+          
+        //현재 원소가 피봇보다 작을시
+        if (arr[j] < pivot) 
+        {
+              
+            //작은 원소가 있는 인덱스를 올린다.
+            i++; 
+            swap(arr, i, j);
+        }
+    }
+    swap(arr, i + 1, high);
+    return (i + 1);
+}
+
+//퀵소트를 하는 함수
+static void quickSort(int[] arr, int low, int high)
+{
+    if (low < high) 
+    {
+        //pi는 파티션 인덱스이다.
+        int pi = partition(arr, low, high);
+
+        // 파티션 오른쪽에 있는것과 파티션 왼쪽에 있는것 정렬
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
 ```
 
 ### 퀵 정렬 시간 복잡도
@@ -142,35 +154,26 @@ public class qucikSort {
 이렇게 따로 array를 만들어 입력해야하는 특성 때문에 1,000,000을 넘지 않을 때 효과적으로 사용할 수 있다. 또 가장 큰 데이터와 가장 작은 데이터의 차이가 적을 때 유리하다.
 
 ```java
-static void countSort(int[] arr)
-{
-    int max = Arrays.stream(arr).max().getAsInt();
-    int min = Arrays.stream(arr).min().getAsInt();
-    int range = max - min + 1;
 
-    //range의 크기인 배열을 만든다.
-    int count[] = new int[range];
-    //정렬된 결과를 담을 배열을 만든다.
-    int output[] = new int[arr.length];
+static void countSort(int [] arr){
 
+    Arrays.sort(arr);
 
-    for (int i = 0; i < arr.length; i++) {
-        count[arr[i] - min]++;
+    //arr에 있는 가장 큰 원소의 크기만큼 큰 array를 만든다
+    int[] count = new int[arr[arr.length-1]];
+    Arrays.fill(count,0);
+
+    //arr을 돌아가며 각 원소들의 갯수를 샌다.
+    for(int i =0; i < arr.length;i++){
+        count[arr[i]] +=1;
     }
 
-    for (int i = 1; i < count.length; i++) {
-        count[i] += count[i - 1];
+    for(int i=0; i < count.length; i++){
+        for(int j=0; j < count[i]; j++){
+            System.out.println(i + " ");
+        }
     }
-
-    for (int i = arr.length - 1; i >= 0; i--) {
-        output[count[arr[i] - min] - 1] = arr[i];
-        count[arr[i] - min]--;
-    }
-
-    for (int i = 0; i < arr.length; i++) {
-        arr[i] = output[i];
-    }
-}
+} 
 ```
 
 ### 계수 정렬의 시간 복잡도
@@ -180,9 +183,12 @@ static void countSort(int[] arr)
 데이터가 0과 999,999 두개만 있다고 해도 리스트의 크기가 100만개가 되도록 선언해야 하기애 동일한 값을 여러개 가지고 있는 경우에 유리하다.
 
 ## Java의 정렬 라이브러리
+자바에 Java Collection Framework에서 제공하는 Arrays.sort()는 Dual Pivot Quick Sort로 이루어져있어서 quick sort에 비해 많은 데이터 셋에서도 O(nlogn)의 속도를 보장한다.
 
+
+>참고자료
 
 https://www.geeksforgeeks.org/selection-sort/
-
+https://velog.io/@agugu95/Java-%EB%82%B4%EB%B6%80-%EC%A0%95%EB%A0%AC-%ED%95%A8%EC%88%98%EC%9D%98-%EA%B5%AC%ED%98%84
 https://gwang920.github.io/algorithm%20non%20ps/qucikSort/
 
