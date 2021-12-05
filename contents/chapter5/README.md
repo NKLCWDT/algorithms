@@ -1,7 +1,7 @@
 # DFS와 BFS
 ### 탐색(Search)
 많은 양의 데이터를 찾는 과정을 말한다. 대표적인 탐색 알고리즘으로 BFS와 DFS를 꼽을  수 있다. 
-## 자료구조(Data Structure)->추가하기
+## 자료구조(Data Structure)
 데이터를 표현하고 관리하고 처리하기 위한 구조
 
 ### 스택(Stack)
@@ -188,10 +188,6 @@ public static void bfs(int V){
     }
 }
 ```
-
-### DFS와 BFS의 비교
-
-
 
 
 >참고자료  
