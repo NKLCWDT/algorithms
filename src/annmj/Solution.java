@@ -1,4 +1,4 @@
-package annmj.chapter5.template;
+package annmj;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,13 +12,13 @@ public class Solution {
 
     }
 
-    static void pro() {
+    static void process() {
 
     }
 
     public static void main(String[] args) {
         input();
-        pro();
+        process();
     }
 
     static class FastReader {
