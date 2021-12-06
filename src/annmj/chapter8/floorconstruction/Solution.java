@@ -1,4 +1,4 @@
-package annmj;
+package annmj.chapter8.floorconstruction;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,12 +8,20 @@ import java.util.StringTokenizer;
 public class Solution {
     static FastReader scan = new FastReader();
 
+    static int N;
+    static long[] floors; // 경우의 수
     static void input() {
-
+        N = scan.nextInt();
+        floors = new long[N + 1];
     }
 
     static void process() {
-
+        floors[1] = 1;
+        floors[2] = 3;
+        for (int i = 3; i <= N; i++) {
+            floors[i] = (2 * floors[i - 2] + floors[i - 1]) % 796796;
+        }
+        System.out.println(floors[N]);
     }
 
     public static void main(String[] args) {
