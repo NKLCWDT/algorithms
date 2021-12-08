@@ -26,7 +26,7 @@ stack.contains(1) // stack에 1이 있는지 check (있다면 true)
 
 ### 큐(Queue)
 큐는 스택과는 다르게 대기줄이라고 생각하면 편하다. 먼저온 사람이 먼저 갈 수 있는 것처럼 아주 공정한 자료구조이다. 이런 구조를 선입선출(First In First Out)이라고 한다. 
-![images](/images/chapter5/stack.png)
+![images](/images/chapter5/queue.png)
 
 Enqueue : 큐 맨 뒤에 데이터 추가  
 Dequeue : 큐 맨 앞쪽의 데이터 삭제
