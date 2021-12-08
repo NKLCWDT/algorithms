@@ -19,7 +19,7 @@ public class Solution {
         }
     }
 
-    static void pro() {
+    static void process() {
         StringBuilder sb = new StringBuilder();
         List<Map.Entry<String, Integer>> entryList = new LinkedList<>(map.entrySet());
         entryList.sort((o1, o2) -> o1.getValue() - o2.getValue()); // 양수이면 두 값이 교체가 된다.
@@ -32,7 +32,7 @@ public class Solution {
 
     public static void main(String[] args) {
         input();
-        pro();
+        process();
     }
 
     static class FastReader {
