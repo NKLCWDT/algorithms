@@ -27,7 +27,7 @@ public class Solution {
         }
     }
 
-    static void pro() {
+    static void process() {
         Arrays.sort(arrayN); // 오름차순 정렬 되어 있어야 한다.
         List<Boolean> yesOrNo = new LinkedList<>();
         for (int i = 0; i < M; i++) {
@@ -63,7 +63,7 @@ public class Solution {
 
     public static void main(String[] args) {
         input();
-        pro();
+        process();
     }
 
     static class FastReader {
