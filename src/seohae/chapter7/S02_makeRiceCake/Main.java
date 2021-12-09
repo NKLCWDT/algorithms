@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Main {
     static int N; // 떡 개수
     static int M; // 손님이 요청한 떡의 길이
-    static int H; // 결과 (자를 높이)
+    // static int H; // 결과 (자를 높이)
 
     static int[] arr; // 떡 배열
 
@@ -55,27 +55,37 @@ public class Main {
 
         /* start, end set */
         int start = 0;
-        int end = arr.length - 1;
+        // int end = arr.length - 1;
+        int end = arr[arr.length - 1];
+
+        // int sum = 0;
+        int result = 0;
 
         while (start <= end) {
             /* 중간점 찾기 */
             int mid = (start + end) / 2;
-            H = arr[mid];
+            // H = arr[mid];
 
-            int value = 0;
+            int sum = 0;
 
             for (int j : arr) {
-                value += Math.max(j - H, 0);
+                // value += Math.max(j - H, 0);
+
+                /* mid 보다 클 경우에만 처리 */
+                if (j > mid) {
+                    sum += j - mid;
+                }
             }
 
-            if (value == M) { /* 요청한 떡의 길이와 value 가 같으면 */
-                System.out.println(H);
-                break;
-            } else if (value < M) { /* value 가 요청한 떡의 길이보다 작으면 end 를 줄여서 더 작게 */
+            if (sum < M) { /* value 가 요청한 떡의 길이보다 작으면 end 를 줄여서 더 작게 */
                 end = mid - 1;
             } else {
+                result = mid; /* 최대한 덜 잘랐을때 */
                 start = mid + 1; /* value 가 요청한 떡의 길이보다 작으면 start 를 늘려서 더 크게 */
             }
+
         }
+
+        System.out.println(result);
     }
 }
