@@ -13,7 +13,10 @@ public class Solution {
     static int[] teams;  /* index 는 학생 번호 , value 는 부모 ( 더 낮은 번호의 학생을 가리킴 ) */
 
     static void addTeam(int a, int b) {
-        /*System.out.println("Solution.addTeam");*/
+        /* findTeam 연산을 무조건 해줘야 한다. a 의 root 노드와 b 의 root 노드를 비교해야 한다. */
+        a = findTeam(a);
+        b = findTeam(b);
+
         /* union 연산 */
         if(a > b) {
             teams[a] = findTeam(b);
