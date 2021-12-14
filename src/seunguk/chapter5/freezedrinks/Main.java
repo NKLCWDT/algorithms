@@ -30,9 +30,9 @@ public class Main {
         int count = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                if (!visited[i][j] && arr[i][j] == 0) {
+                if (!visited[i][j] && arr[i][j] == 0) { // 처음 방문하고 구멍이 뚫려 있는 곳만 방문
                     bfs(i, j);
-                    count++;
+                    count++; // bfs가 끝나면 인접한 부분 모두 탐색으로 1증가
                 }
             }
         }
@@ -41,7 +41,7 @@ public class Main {
 
     private static void bfs(int a, int b) {
         Queue<Freeze> queue = new LinkedList<>();
-        queue.add(new Freeze(a, b));
+        queue.add(new Freeze(a, b)); // 큐에 처음 시작값 넣어준다
         visited[a][b] = true;
 
         while (!queue.isEmpty()) {
@@ -50,12 +50,12 @@ public class Main {
             int x = f.x;
             int y = f.y;
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++) { // 상하좌우 탐색
                 int nx = x + dx[i];
                 int ny = y + dy[i];
 
                 if (nx >= 0 && ny >= 0 && nx < N && ny < M) {
-                    if (arr[nx][ny] == 0 && !visited[nx][ny]) {
+                    if (arr[nx][ny] == 0 && !visited[nx][ny]) { // 처음 방문하고 구멍이 뚫려 있는 곳만 방문
                         visited[nx][ny] = true;
                         queue.add(new Freeze(nx, ny));
                     }
