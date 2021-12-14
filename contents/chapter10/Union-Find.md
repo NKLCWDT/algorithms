@@ -109,8 +109,13 @@ int find(int x) {
 
 ### 시간복잡도
 
-경로 압축 방법을 사용할 경우  
-노드 개수 V개, 최대 V - 1개의 union연산, M개의 find 연산이 가능한 경우
+일반적으로 유니온파인드를 사용하게 될 경우, 평균적으로 트리의 높이만큼 탐색하는 O(logN)이지만,  
+트리를 형성하는 과정에서 사향트리가 될 수 있으며, 이렇게 될 경우 시간복잡도는 O(N)이 되어버린다.  
+  
+따라서, 효율성을 위해 Find 과정에서 경로압축을 하게 될 경우 find의 시간 복잡도는 O(a(N))이 되는데  
+여기서 a(N)은 아커만 함수를 의미한다. 아커만 함수에서 N이 2^65536일 때, 아커만 함수의 값은 5가 되므로  
+
+유니온 파인드는 상수의 시간복잡도를 가진다고 봐도 무방하다.
 
 ![IMAGES](/images/chapter10/time.png)
 
@@ -118,6 +123,12 @@ int find(int x) {
 
 유니온-파인드를 이용하여 무방향 그래프 내에서의 사이클을 판별할 때 사용할 수 있다는 특징이 있다.  
 > 방향 그래프에서의 사이클 여부는 DFS를 이용하여 판별 가능하다.
+
+1. 각 간선을 확인하며 두 노드의 루트 노드를 확인한다.
+   1. 루트 노드가 서로 다르다면 두 노드에 대하여 union 연산을 수행한다.
+   2. 루트 노드가 서로 같다면 사이클이 발생한 것이다.
+   
+2. 그래프에 포함되어 있는 모든 간선에 대하여 1번 과정을 반복한다.
 
 ```java
 public class Main {
@@ -176,3 +187,7 @@ public class Main {
 ### Reference
 
 [그래프 이론 : 유니온 파인드](https://velog.io/@syoung125/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9D%B4%EB%A1%A0-%EC%9C%A0%EB%8B%88%EC%98%A8-%ED%8C%8C%EC%9D%B8%EB%93%9Cunion-find-%ED%81%AC%EB%A3%A8%EC%8A%A4%EC%B9%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Kruskal-Algorithm-%EC%9C%84%EC%83%81-%EC%A0%95%EB%A0%ACTopology-Sort)
+
+[이것이 코딩 테스트다](http://www.yes24.com/Product/Goods/91433923)
+
+https://dheldh77.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9C%A0%EB%8B%88%EC%98%A8%ED%8C%8C%EC%9D%B8%EB%93%9CUnion-Find-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-1
