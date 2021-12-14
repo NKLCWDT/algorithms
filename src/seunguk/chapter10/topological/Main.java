@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     static int[] indegree;
-    static int[][] graph;
+    static ArrayList<Integer>[] graph;
     static int V;
     static int E;
     static List<Integer> result = new ArrayList<>();
@@ -14,13 +14,18 @@ public class Main {
         V = sc.nextInt();
         E = sc.nextInt();
         indegree = new int[V+1];
-        graph = new int[V+1][V+1];
+        graph = new ArrayList[V+1];
+
+        // 그래프 초기화
+        for (int i = 0; i < V+1; i++) {
+            graph[i] = new ArrayList<>();
+        }
 
         for (int i = 0; i < E; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
             // 방향그래프
-            graph[a][b] = b;
+            graph[a].add(b);
             // 진입차수 증가
             indegree[b] += 1;
         }
@@ -33,7 +38,6 @@ public class Main {
     private static void topology_sort() {
         Queue<Integer> queue = new LinkedList<>();
 
-        // 처음 시작할 때 진입차수가 0인 노드를 큐에 삽입
         for (int i = 1; i < V+1; i++) {
             if (indegree[i] == 0) {
                 queue.add(i);
