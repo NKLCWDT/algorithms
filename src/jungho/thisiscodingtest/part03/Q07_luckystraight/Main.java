@@ -20,8 +20,8 @@ public class Main {
 
     private static void solution() {
         String[] numbers = N.split("");
+        int middle = numbers.length / 2;
         for (int i = 0; i < numbers.length; i++) {
-            int middle = numbers.length / 2;
             int number = Integer.parseInt(numbers[i]);
             if (i < middle) {
                 left += number;
