@@ -1,12 +1,8 @@
 package seohae.chapter6.S02_lowerGrades;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /*
    이름과 성적으로 구분

@@ -149,7 +149,7 @@ int find(int x) {
 2. 그래프에 포함되어 있는 모든 간선에 대하여 1번 과정을 반복한다.
 
 ```java
-public class Main {
+public class annmj.thisiscodingtest.part03.Q07_luckyStraight.Main {
     static int[] parent;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

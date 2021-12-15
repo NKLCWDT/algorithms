@@ -4,7 +4,6 @@ package jihye.chapter4.upDownLeftRight;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.stream.Stream;
 
 public class Solution1 {
 
