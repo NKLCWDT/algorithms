@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 /*
   도시의 개수 : N개

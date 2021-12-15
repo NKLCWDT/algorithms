@@ -33,7 +33,7 @@ Top-down 방식은 큰 문제를 해결하기 위해 작은 문제를 호출한�
 Bottom-Up 방식은 작은 문제부터 차근차근 답을 도출한다고하여 붙여진 이름이다.
 
 ```java
-public class Main {
+public class annmj.thisiscodingtest.part03.Q07_luckyStraight.Main {
 
     public static long[] d = new long[100];
 
@@ -97,7 +97,7 @@ DP 테이블이 `결과 저장용 리스트`라고 했다. 더 쉽게 이해하�
  * 동적 계획법이고 최대한 Bottom-Up 방식을 사용해서 해결하기
  * 핵심은 저장된 결과를 재사용
  */
-public class Main {
+public class annmj.thisiscodingtest.part03.Q07_luckyStraight.Main {
 
     private static int x;
     private static int[] dp = new int[30001]; // dp[number] 는 number 에 해당하는 숫자가 1이 되기 위해 연산을 사용하는 횟수의 최솟값을 의미한다.

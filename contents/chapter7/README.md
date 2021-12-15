@@ -208,7 +208,7 @@ if(decisionToFindTheOptimizedValue(arr, middlePoint) <= m) {
   - 문제 : 이것이코딩테스트다 떡볶이 떡 만들기
 
 ```java
-public class Main {
+public class annmj.thisiscodingtest.part03.Q07_luckyStraight.Main {
 
     private static int n; // 입력 데이터 개수 
     private static int m; // 조건(condition) : 손님이 얻고자 하는 떡의 길이

@@ -1,10 +1,7 @@
 package seohae.chapter9.S01_futureCity;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.PriorityQueue;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 /*
    공중 미래 도시 : 1번 ~ N번까지의 회사 존재

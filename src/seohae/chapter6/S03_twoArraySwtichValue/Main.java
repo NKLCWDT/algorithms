@@ -2,9 +2,7 @@ package seohae.chapter6.S03_twoArraySwtichValue;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 /*
    배열 A, 배열 B
