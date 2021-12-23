@@ -1,4 +1,4 @@
-package seunguk.thisiscodingtest.part03.Q5bowlingballpick;
+package seunguk.thisiscodingtest.part03.Q05_bowlingballpick;
 
 import java.util.Scanner;
 

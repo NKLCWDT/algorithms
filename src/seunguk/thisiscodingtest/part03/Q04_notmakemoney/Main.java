@@ -1,4 +1,4 @@
-package seunguk.thisiscodingtest.part03.Q04notmakemoney;
+package seunguk.thisiscodingtest.part03.Q04_notmakemoney;
 
 import java.util.Arrays;
 import java.util.Scanner;
