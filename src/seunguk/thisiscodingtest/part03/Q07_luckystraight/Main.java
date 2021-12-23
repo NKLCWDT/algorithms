@@ -1,4 +1,4 @@
-package seunguk.thisiscodingtest.part03.Q07luckystraight;
+package seunguk.thisiscodingtest.part03.Q07_luckystraight;
 
 import java.util.Scanner;
 
