@@ -1,4 +1,4 @@
-package seunguk.thisiscodingtest.part03.Q01adventurerguild.try1;
+package seunguk.thisiscodingtest.part03.Q01_adventurerguild.try1;
 
 import java.util.Arrays;
 import java.util.Scanner;

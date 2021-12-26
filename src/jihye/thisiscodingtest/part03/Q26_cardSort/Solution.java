@@ -10,15 +10,15 @@ public class Solution {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         int N = sc.nextInt();
 
-        for(int i=0; i< N ; i++) {
+        for (int i = 0; i < N; i++) {
             priorityQueue.add(sc.nextInt());
         }
-        int ans=0;
-        while(priorityQueue.size() != 1){
+        int ans = 0;
+        while (priorityQueue.size() != 1) {
             //작은 값두개를 더한다.
             int n = priorityQueue.poll() + priorityQueue.poll();
             priorityQueue.add(n);
-            ans+= n;
+            ans += n;
         }
         System.out.println(ans);
     }

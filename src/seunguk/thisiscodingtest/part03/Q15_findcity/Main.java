@@ -1,4 +1,4 @@
-package seunguk.thisiscodingtest.part03.Q15findcity;
+package seunguk.thisiscodingtest.part03.Q15_findcity;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

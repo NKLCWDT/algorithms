@@ -1,4 +1,4 @@
-package seunguk.thisiscodingtest.part03.Q26sortcards;
+package seunguk.thisiscodingtest.part03.Q26_sortcards;
 
 
 import java.util.PriorityQueue;
