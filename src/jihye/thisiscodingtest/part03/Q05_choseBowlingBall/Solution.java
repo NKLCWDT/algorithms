@@ -1,6 +1,5 @@
-package jihye.thisiscodingtest.part03.choseBowlingBall;
+package jihye.thisiscodingtest.part03.Q05_choseBowlingBall;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Solution {
