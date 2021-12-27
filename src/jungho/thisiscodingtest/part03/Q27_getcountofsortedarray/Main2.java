@@ -51,7 +51,7 @@ public class Main2 {
         int startPoint = 0;
         int endPoint = N - 1;
 
-        while(startPoint < endPoint) {
+        while(startPoint <= endPoint) {
             int middlePoint = (startPoint + endPoint) / 2;
             if(numbers[middlePoint] >= x) {
                 endPoint = middlePoint; // // 구하고자하는 답(answer)을 반복해서 조정
@@ -64,7 +64,7 @@ public class Main2 {
 
     private static int findLastIndex() {
         int startPoint = 0;
-        int endPoint = N - 1;
+        int endPoint = N;
 
         /**
          * startPoint <= endPoint 하면 무한루프 발생
