@@ -14,16 +14,16 @@ public class Solution {
 
         int first = searchFirst(num, 0, num.length, x);
         int last = searchLast(num, 0, num.length, x);
-        if(first == -1 && last == -1){
+        if (first == -1 && last == -1) {
             System.out.println(-1);
-        }else{
+        } else {
             System.out.println(last - first + 1);
         }
     }
 
     public static int searchFirst(int[] num, int start, int end, int target) {
         //시작점이 항상 끝보다 작을 수 있게
-        if (start > end ) {
+        if (start > end) {
             return -1;
         }
         int mid = (start + end) / 2;
@@ -47,12 +47,12 @@ public class Solution {
             return -1;
         }
         int mid = (start + end) / 2;
-        if (mid > num.length-1) {
+        if (mid > num.length - 1) {
             return -1;
         }
         //target 값을 가지는 원소중 가장 오른쪽
         //mid 가 num.length이면 제일 마지막 값이 target값이라는 뜻
-        if ((mid == num.length-1 || target < num[mid + 1]) && num[mid] == target) {
+        if ((mid == num.length - 1 || target < num[mid + 1]) && num[mid] == target) {
             return mid;
         } else if (num[mid] > target) {//만약 num[mid]값이 타겟보다 크거나 젤 왼쪽값이 아닐시에
             return searchLast(num, start, mid - 1, target);
