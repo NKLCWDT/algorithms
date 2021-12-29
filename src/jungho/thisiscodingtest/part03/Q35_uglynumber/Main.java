@@ -2,7 +2,7 @@ package jungho.thisiscodingtest.part03.Q35_uglynumber;
 
 import java.util.Scanner;
 
-// 못생긴 수
+// 못생긴 수 : 오답
 public class Main {
 
     private static int n;
@@ -17,8 +17,8 @@ public class Main {
 
         int discoveredUglyNumberCount = 0;
         int targetNumber = 1;
-        while (discoveredUglyNumberCount < n) {
-            if (isUglyNumber(targetNumber)) {
+        while(discoveredUglyNumberCount < n) {
+            if(isUglyNumber(targetNumber)) {
                 discoveredUglyNumberCount++;
             }
             targetNumber++;
