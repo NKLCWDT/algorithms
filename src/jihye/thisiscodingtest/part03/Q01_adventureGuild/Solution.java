@@ -10,7 +10,7 @@ public class Solution {
         int arr[] = new int[N];
 
         //값을 받는다.
-        for(int i=0; i < N; i ++){
+        for (int i = 0; i < N; i++) {
             arr[i] = sc.nextInt();
         }
 
@@ -20,11 +20,11 @@ public class Solution {
         int groupPeople = 0;
         int group = 0;
 
-        for(int i=0; i < arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
             groupPeople++;
-            if(groupPeople >= arr[i]){//만약 그룹안에 사람수가 공포도 이상이면
+            if (groupPeople >= arr[i]) {//만약 그룹안에 사람수가 공포도 이상이면
                 group++;//그룹수 증가
-                groupPeople=0;//새로운 그룹위해 사람수 초기화
+                groupPeople = 0;//새로운 그룹위해 사람수 초기화
             }
         }
         System.out.println(group);
