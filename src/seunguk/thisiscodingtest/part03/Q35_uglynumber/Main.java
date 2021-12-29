@@ -21,6 +21,10 @@ public class Main {
             number++;
         }
 
+        for (int i = 0; i < uglyNumber.length; i++) {
+            System.out.println(uglyNumber[i]);
+        }
         System.out.println(uglyNumber[n-1]);
+
     }
 }
