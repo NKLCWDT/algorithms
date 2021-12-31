@@ -19,8 +19,8 @@ public class Main {
     static int unionCount = 0;
     static boolean unionExist = false; // 연합이 존재하면 true , 초기화에 유의
     static int count = 0; // 인구이동 횟수
-    static ArrayList<ArrayList<Integer>> contries = new ArrayList<>();
-    static ArrayList<Integer> unions = new ArrayList<>();
+    static ArrayList<ArrayList<Integer>> contries = new ArrayList<>(); // 연합별 나라들 저장
+    static ArrayList<Integer> unions = new ArrayList<>(); // 하나의 연합에 속한 나라 저장
     public static void process() {
         //dfs
         while (true) {
