@@ -1,4 +1,4 @@
-package jihye.thisiscodingtest.part03.alternateParanthesis;
+package jihye.thisiscodingtest.part03.Q18_alternateParanthesis;
 
 import java.util.Stack;
 
