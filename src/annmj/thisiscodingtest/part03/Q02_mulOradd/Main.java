@@ -19,7 +19,6 @@ public class Main {
             System.out.println(numbers.remove());
             return;
         }
-
         int result = 0;
         while (!numbers.isEmpty()) {
             int right = numbers.remove();
@@ -29,7 +28,6 @@ public class Main {
                 result = result * right;
             }
         }
-
         System.out.println(result);
     }
 }
