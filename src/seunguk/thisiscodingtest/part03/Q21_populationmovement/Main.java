@@ -5,8 +5,9 @@ import java.util.Queue;
 import java.util.Scanner;
 
 // 예제5 통과못함
-// 구역이 두개 이상 나올 수 있고, 모든 곳에 대하여 bfs를 돌고
-// 한번 bfs가 끝나면 같은 구역이라 판단해야한다.
+// 인구이동 구역이 두개 이상 나올 수 있고,
+// border 배열처럼 체크하게 되면 옆에 벽이 존재해도 서로 이어져있다고 판단할 수 있다.
+// 모든 정점에 대해서 bfs를 돌고, 한번 bfs가 끝나면 같은 구역이라 판단해야한다.
 
 public class Main {
     static int N;
@@ -43,14 +44,13 @@ public class Main {
         int time = 0;
         while (true) {
             check = new boolean[N][N];
-            border = new boolean[N][N];
+            border = new boolean[N][N]; // 인구 이동 가능한지 true, false
             int count = 0;
             int result = 0;
             boolean bool = false;
             bfs();
 
-
-
+            // bfs 돌고 난 후 border 배열을 보고 true일 경우 result에 더해주고 count 증가
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     if (border[i][j]) {
@@ -61,12 +61,15 @@ public class Main {
                 }
             }
 
+            // 한번이라도 인구 이동 했다면 true이다
             if (!bool) {
                 break;
             }
 
             int answer = result / count;
 
+
+            // 값 갱신
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     if (border[i][j]) {
@@ -98,6 +101,7 @@ public class Main {
                 if (nx >= 0 && ny >= 0 && nx < N && ny < N) {
                     if (!check[nx][ny]) {
                         if (Math.abs(arr[nx][ny] - arr[x][y]) <= R && Math.abs(arr[nx][ny] - arr[x][y]) >= L) {
+                            // 현재값과 이동한값 border배열 true로 체크
                             border[x][y] = true;
                             border[nx][ny] = true;
                         }
