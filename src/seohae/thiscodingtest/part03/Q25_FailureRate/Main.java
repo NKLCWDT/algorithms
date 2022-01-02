@@ -110,9 +110,6 @@ public class Main {
     }
 
     public double getFailureRate(int stoppedUser, int finishedUser) {
-        if (finishedUser == 0 || stoppedUser == 0) {
-            return 0.0;
-        }
         // 스테이지에 도달했으나 아직 클리어하지 못한 플레이어의 수 / 스테이지에 도달한 플레이어 수
         return ((double) stoppedUser) / finishedUser;
     }
