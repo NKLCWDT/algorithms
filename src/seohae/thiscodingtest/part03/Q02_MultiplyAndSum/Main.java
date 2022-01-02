@@ -30,7 +30,7 @@ public class Main {
             int target = list.get(index);
 
             // 0 이 아닐경우 곱셈
-            if (sum != 0 && target != 0) {
+            if (sum != 0 && target != 0 && sum != 1 && target != 1) {
                 isMultiply = true;
             }
 
