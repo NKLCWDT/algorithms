@@ -19,21 +19,15 @@ public class Main {
             System.out.println(numbers.remove());
             return;
         }
-
         int result = 0;
         while (!numbers.isEmpty()) {
             int right = numbers.remove();
-            if (right == 0) {
-                continue;
+            if (result == 0 || right == 0 || right == 1 || result == 1) {
+                result += right;
             } else {
-                if (result == 0) {
-                    result += right;
-                } else {
-                    result = result * right;
-                }
+                result = result * right;
             }
         }
-
         System.out.println(result);
     }
 }
