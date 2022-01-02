@@ -155,7 +155,6 @@ public class Main {
                         unite(x, y);
                         if(unitedCountries.size() > 1) {
                             move();
-                            answer++;
                             isMoved = true;
                         }
                     }
@@ -164,6 +163,7 @@ public class Main {
             if(!isMoved) {
                 break;
             }
+            answer++;
         }
     }
 
