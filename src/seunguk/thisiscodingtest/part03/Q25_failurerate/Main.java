@@ -20,8 +20,10 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        int N = 4;
-        int[] stages = {4,4,4,4,4};
+        int N = 5;
+        int[] stages = {2,1,2,6,2,4,3,3};
+//        int N = 4;
+//        int[] stages = {4,4,4,4,4};
         int [] answer = solution(N, stages);
 
         for (int i = 0; i < answer.length; i++) {
@@ -38,7 +40,7 @@ public class Main {
         float focus = 0; // 이미 계산된 갯수 저장
         int stg = 1; // 게임 스테이지
         while (true) {
-            if (index == N+1) { // 마지막 인덱스 까지 탐색 했을 시 종료
+            if (index == stages.length) { // 마지막 인덱스 까지 탐색 했을 시 종료
                 break;
             }
             if (stg == stages[index]) { // 현재 스테이지와 stages 배열 값이 같다면
@@ -53,15 +55,16 @@ public class Main {
                 stg++;
                 index++;
                 focus = count; // 계산된 값 저장
+                count = 0;
 
             }
 
         }
         // 마지막 스테이지 계산
-        if (count != 0) {
-            float failure = count / (stages.length - focus);
-            result.add(new Node(stg, failure));
-        }
+//        if (count != 0) {
+//            float failure = count / (stages.length - focus);
+//            result.add(new Node(stg, failure));
+//        }
 
 
         for (int i = 0; i < result.size(); i++) {
