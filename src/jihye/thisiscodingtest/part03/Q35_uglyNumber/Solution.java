@@ -1,6 +1,5 @@
-package jihye.thisiscodingtest.part03.Q25_uglyNumber;
+package jihye.thisiscodingtest.part03.Q35_uglyNumber;
 
-import java.util.Queue;
 import java.util.Scanner;
 
 public class Solution {
