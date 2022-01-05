@@ -8,6 +8,8 @@ public class Solution {
         int N = 5;
         int[] stages = {2, 1, 2, 6, 2, 4, 3, 3};
         solution(N, stages);
+
+
 //        int N = 5;
 //        int[] stages = new int[]{2, 1, 2, 6, 2, 4, 3, 3};
 //
