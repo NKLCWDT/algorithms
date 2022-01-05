@@ -7,11 +7,11 @@ public class combination {
         boolean[] visited = new boolean[n];
 //           for (int i = 1; i <= n; i++) {
 //               System.out.println("\n" + n + " 개 중에서 " + i + " 개 뽑기");
-//               comb(arr, visited, 0, n, i);
+               comb(arr, visited, 0, n, 2);
 //           }
 //        for (int i = 1; i <= n; i++) {
 //            System.out.println("\n" + n + " 개 중에서 " + i + " 개 뽑기");
-            combination(arr, visited, 0, n, 2);
+//            combination(arr, visited, 0, n, 2);
 //        }
     }
     // 백트래킹 사용
@@ -40,7 +40,7 @@ public class combination {
         visited[depth] = true;
         comb(arr, visited, depth + 1, n, r - 1);
         visited[depth] = false;
-        comb(arr, visited, depth + 1, n, r);
+//        comb(arr, visited, depth + 1, n, r);
     }
     // 배열 출력
     static void print(int[] arr, boolean[] visited, int n) {
