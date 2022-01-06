@@ -134,18 +134,19 @@ public class Main {
     }
 
     /**
-     * 조합을 이용하여 부분집합 구하기
+     * 조합
+     * 종료조건 : r == 0 or index == arr.length
      * @param chickens 치킨 집
      * @param visited 해당 원소를 사용하는지 여부
      * @param currentIndex 현재 인덱스
      * @param r 뽑을 개수
      */
     static void combinationByDfs(List<Position> chickens, boolean[] visited, int currentIndex, int r) {
-        if(r == 0) {
+        if(r == 0) { // 뽑아 낼 개수가 0인 경우
             calculateMinDistance(chickens, visited);
             return;
         }
-        if(currentIndex == chickens.size()) {
+        if(currentIndex == chickens.size()) { // index 가 리스트의 사이즈와 같은 경우
             return;
         } else {
             visited[currentIndex] = true; // currentIndex 에 해당하는 원소를 사용한다라는 의미
