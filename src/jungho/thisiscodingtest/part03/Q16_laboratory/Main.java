@@ -84,6 +84,7 @@ public class Main {
         visited = new boolean[safetyZones.size()];
     }
 
+    // 조합 사용
     static void useCombination(int currentIndex, int r) {
         if(r == 0) {
             constructWallsAndSpreadTheVirus();
@@ -132,8 +133,7 @@ public class Main {
                     int ny = virus.y + dy[k];
 
                     if(isInGraph(nx, ny)) {
-                        int value = clonedGraph[nx][ny];
-                        if(value == EMPTY) {
+                        if(clonedGraph[nx][ny] == EMPTY) {
                             clonedGraph[nx][ny] = VIRUS;
                             virusQ.add(new Virus(nx, ny));
                         }
@@ -145,6 +145,7 @@ public class Main {
         countSafetyZone(clonedGraph);
     }
 
+    // 그래프 안에 존재하면
     static boolean isInGraph(int nx, int ny) {
         return nx >= 0 && ny >= 0 && nx < N && ny < M;
     }
