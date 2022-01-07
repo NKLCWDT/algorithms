@@ -85,7 +85,7 @@ public class Main {
                 }
             }
         }
-        DFS(copyMap,  0,0);
+        DFS(copyMap, 0, 0);
         System.out.println(answer);
     }
 
@@ -108,7 +108,7 @@ public class Main {
 
         for (int i = start; i < safeArea.size(); i++) {
             copyMap[safeArea.get(i).x][safeArea.get(i).y] = 1;
-            DFS(copyMap, i+1, count + 1);
+            DFS(copyMap, i + 1, count + 1);
             copyMap[safeArea.get(i).x][safeArea.get(i).y] = 0;
         }
     }
@@ -126,7 +126,7 @@ public class Main {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 if (map[i][j] == 0) {
-                    count ++;
+                    count++;
                 }
             }
         }
