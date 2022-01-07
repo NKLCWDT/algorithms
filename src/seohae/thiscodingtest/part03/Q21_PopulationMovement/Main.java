@@ -129,8 +129,8 @@ public class Main {
             int[] dy = new int[]{1, 0, -1, 0};
 
             for (int i = 0; i < 4; i++) {
-                int nx = x + dx[i];
-                int ny = y + dy[i];
+                int nx = cur.x + dx[i];
+                int ny = cur.y + dy[i];
 
                 if (nx > 0 && ny > 0 && nx < N + 1 && ny < N + 1) {
                     if (!visited[nx][ny]) {
