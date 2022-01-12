@@ -29,7 +29,6 @@ public class Solution {
         C = sc.nextInt();
         list = new ArrayList[N+1];
         dist = new int[N+1];
-        int[][] graph = new int[N+1][N+1];
 
         Arrays.fill(dist, INF);
 
