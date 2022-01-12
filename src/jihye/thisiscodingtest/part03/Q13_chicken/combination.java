@@ -59,18 +59,6 @@ public class combination {
 
     static int[][] dp = new int[30][30];//적당한 크기
 
-    //리턴주목 : 배열에 넣어준다.
-    static int combin(int n, int r) {
-        if (dp[n][r] > 0) {// 메모이제이션
-            return dp[n][r];
-        }
-        if (r == 0 || n == r) {
-            return dp[n][r] = 1;
-        }
-
-        return dp[n][r] = combin(n - 1, r - 1) + combin(n - 1, r);
-
-    }
 
     // 배열 출력
     static void print(int[] arr, boolean[] visited, int n) {
@@ -80,5 +68,15 @@ public class combination {
             }
         }
         System.out.println();
+    }
+
+
+    //n개의 수, r개로 이뤄진 조합
+    public static int combinationMemo(int n, int r){
+        if(n==r || r==0) return 1;
+        if(dp[n][r]>0) return dp[n][r];//메모리제이션 역할(이미 계산을 했기에 0이 아님)
+
+        dp[n][r]=combinationMemo(n-1,r-1)+combinationMemo(n-1,r);
+        return dp[n][r];
     }
 }
