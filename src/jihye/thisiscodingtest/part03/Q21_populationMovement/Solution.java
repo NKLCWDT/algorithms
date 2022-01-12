@@ -2,6 +2,15 @@ package jihye.thisiscodingtest.part03.Q21_populationMovement;
 
 import java.util.*;
 
+
+class Coordinate{
+    int x;
+    int y;
+    Coordinate(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+}
 public class Solution {
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
@@ -57,14 +66,12 @@ public class Solution {
     }
 
     public static void process(int x, int y, int index) {
-        ArrayList<int[]> united = new ArrayList<>();
-        int[] coordinate;
-        coordinate = new int[2];
-        coordinate[0] = x;
-        coordinate[1] = y;
+        ArrayList<Coordinate> united = new ArrayList<>();
+        Coordinate coordinate = new Coordinate(x,y);
+
         united.add(coordinate);
 
-        Queue<int[]> queue = new LinkedList<>();
+        Queue<Coordinate> queue = new LinkedList<>();
         queue.add(coordinate);
 //        System.out.println(x + " " + y);
         //몇번째 연합인지 담아준다
@@ -75,9 +82,9 @@ public class Solution {
         int count = 1;
 
         while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
-            x = curr[0];
-            y = curr[1];
+            Coordinate curr = queue.poll();
+            x = curr.x;
+            y = curr.y;
             //상하좌우 확인한다
             for (int i = 0; i < 4; i++) {
                 int nx = x + dx[i];
@@ -86,9 +93,8 @@ public class Solution {
                 if (0 <= nx && nx < N && 0 <= ny && ny < N && union[nx][ny] == -1) {
                     int diff = Math.abs(map[nx][ny] - map[x][y]);
                     if (L <= diff && diff <= R) {//국가들의 사람수 차이가 L이상 R이하라면
-                        coordinate = new int[2];
-                        coordinate[0] = nx;
-                        coordinate[1] = ny;
+                        curr = new Coordinate(x,y);
+
                         queue.add(coordinate);//큐에 더해준다
                         union[nx][ny] = index;//현재 몇번째 연합인지 표시
                         totalUnion += map[nx][ny];// 전체 연합 사람수에 더해준다
@@ -98,8 +104,9 @@ public class Solution {
                 }
             }
         }
-        for(int[] one : united){//연합국들의 사람 수 업데이트해준다
-            map[one[0]][one[1]] = totalUnion/count;
+        for(Coordinate one : united){//연합국들의 사람 수 업데이트해준다
+            map[one.x][one.y] = totalUnion/count;
         }
     }
+
 }
