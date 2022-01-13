@@ -34,7 +34,7 @@ class Solution {
                  * 이 때는 i + unit 부터 탐색을 해야한다.
                  */
                 for (int j = i + unit; j < s.length(); j++) {
-                    if (!isEqualToPrev(prev, j, s.charAt(j), unit)) {
+                    if (NotEqualToPrev(prev, j, s.charAt(j), unit)) {
                         break;
                     }
 
@@ -56,7 +56,7 @@ class Solution {
         return answer;
     }
 
-    private boolean isEqualToPrev(StringBuilder prev, int j, char c, int unit) {
-        return c == prev.toString().charAt(j % unit);
+    private boolean NotEqualToPrev(StringBuilder prev, int j, char c, int unit) {
+        return c != prev.toString().charAt(j % unit);
     }
 }
