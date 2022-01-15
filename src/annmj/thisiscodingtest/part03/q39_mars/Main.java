@@ -1,14 +1,11 @@
 package annmj.thisiscodingtest.part03.q39_mars;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     static int N;    /* 공간의 크기 */
     static int[] a;
-    static ArrayList<Edge>[] graph;
+    static List<Edge>[] graph;
     static int[] dir = {0, 0, -1, 1};
     static boolean[] visit;
     static int[] dist;
@@ -25,18 +22,6 @@ public class Main {
 
         public int getIndex() {
             return index;
-        }
-
-        public int getCost() {
-            return cost;
-        }
-
-        public void setIndex(int index) {
-            this.index = index;
-        }
-
-        public void setCost(int cost) {
-            this.cost = cost;
         }
 
         @Override
@@ -58,21 +43,8 @@ public class Main {
             return end;
         }
 
-        public void setEnd(int end) {
-            this.end = end;
-        }
-
         public int getCost() {
             return cost;
-        }
-
-        public void setCost(int cost) {
-            this.cost = cost;
-        }
-
-        @Override
-        public String toString() {
-            return "end : " + this.end + " cost : " + this.cost;
         }
     }
 
@@ -88,7 +60,7 @@ public class Main {
     private static void input() {
         N = scanner.nextInt();
         a = new int[N * N];
-        graph = new ArrayList[N*N];    /* 3 이라면 3 * 3 = 9 개의 노드를 만들어 준다. */
+        graph = new ArrayList[N * N];    /* 3 이라면 3 * 3 = 9 개의 노드를 만들어 준다. */
         visit = new boolean[N * N];
         dist = new int[N * N];
         dir[0] = -N;
@@ -104,7 +76,7 @@ public class Main {
         for (int i = 1; i < a.length; i++) {
             for (int j = 0; j < 4; j++) {
                 int nx = i + dir[j];
-                if (nx < 0 || nx >= N * N || ((i % N == N-1) && (nx % N ==0)) || ((i % N == 0) && (nx % N == N-1)))  {
+                if (notIncludePoint(nx, i)) {
                     continue;
                 }
                 graph[nx].add(new Edge(i, a[i]));
@@ -112,7 +84,13 @@ public class Main {
         }
     }
 
-    private static void findMinCost(ArrayList<Edge>[] graph, int start) {
+    private static boolean notIncludePoint(int nx, int i) {
+        return nx < 0 || (nx >= N * N)
+                || ((i % N == N - 1) && (nx % N == 0))   /* 행의 우측 끝과 다음 행의 좌측 끝은 연결하지 않는다. */
+                || ((i % N == 0) && (nx % N == N - 1));  /* 행의 좌측 끝과 이전 행의 우측 끝은 연결하지 않는다. */
+    }
+
+    private static void findMinCost(List<Edge>[] graph, int start) {
         PriorityQueue<Node> pq = new PriorityQueue<>();
         pq.add(new Node(start, a[0]));
         dist[0] = a[0];
@@ -132,23 +110,23 @@ public class Main {
 }
 
 /**
- 3
- 3
- 5 5 4
- 3 9 1
- 3 2 7
- 5
- 3 7 2 0 1
- 2 8 0 9 1
- 1 2 1 8 1
- 9 8 9 2 0
- 3 6 5 1 5
- 7
- 9 0 5 1 1 5 3
- 4 1 2 1 6 5 3
- 0 7 6 1 6 8 5
- 1 1 7 8 3 2 3
- 9 4 0 7 6 4 1
- 5 8 3 2 4 8 3
- 7 4 8 4 8 3 4
+ * 3
+ * 3
+ * 5 5 4
+ * 3 9 1
+ * 3 2 7
+ * 5
+ * 3 7 2 0 1
+ * 2 8 0 9 1
+ * 1 2 1 8 1
+ * 9 8 9 2 0
+ * 3 6 5 1 5
+ * 7
+ * 9 0 5 1 1 5 3
+ * 4 1 2 1 6 5 3
+ * 0 7 6 1 6 8 5
+ * 1 1 7 8 3 2 3
+ * 9 4 0 7 6 4 1
+ * 5 8 3 2 4 8 3
+ * 7 4 8 4 8 3 4
  */
