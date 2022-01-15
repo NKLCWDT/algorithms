@@ -28,7 +28,6 @@ public class Main {
     }
 
     static int T;
-    static int[] arrN;
     static List<int[][]> graphs = new ArrayList<>();
     static int[] dx = {-1, 1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
@@ -44,10 +43,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         T = sc.nextInt();
 
-        arrN = new int[T];
         for (int i = 0; i < T; i++) {
             int graphSize = sc.nextInt();
-            arrN[i] = graphSize;
             int[][] graph = new int[graphSize][graphSize];
 
             for (int j = 0; j < graphSize; j++) {
@@ -67,9 +64,7 @@ public class Main {
             // 최단거리 테이블 초기화
             shortestPaths = new int[graph.length][graph.length];
             for (int x = 0; x < graph.length; x++) {
-                for (int y = 0; y < graph.length; y++) {
-                    shortestPaths[x][y] = INF;
-                }
+                Arrays.fill(shortestPaths[x], INF);
             }
 
             bfs(graph, shortestPaths);
