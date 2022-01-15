@@ -10,7 +10,7 @@ import java.util.*;
 // 화성 탐사
 public class Main {
 
-    static class Node {
+    static class Node implements Comparable<Node> {
         private int x;
         private int y;
         private int cost;
@@ -19,6 +19,11 @@ public class Main {
             this.x = x;
             this.y = y;
             this.cost = cost;
+        }
+
+        @Override
+        public int compareTo(Node o) {
+            return this.cost - o.cost;
         }
     }
 
@@ -79,7 +84,7 @@ public class Main {
      * @param shortestPaths
      */
     static void bfs(int[][] graph, int[][] shortestPaths) {
-        Queue<Node> Q = new LinkedList<>();
+        PriorityQueue<Node> Q = new PriorityQueue<>();
         Q.offer(new Node(0, 0, graph[0][0]));
         shortestPaths[0][0] = graph[0][0];
         int graphSize = graph.length;
@@ -103,6 +108,12 @@ public class Main {
                     shortestPaths[nx][ny] = newCost;
                     Q.offer(new Node(nx, ny, newCost));
                 }
+            }
+
+            // 마지막 값을 갱신 했으면 while 탈출
+            // 우선순위 큐이기 때문에 큐에 데이터가 남아있어도 탈출 가능
+            if(shortestPaths[graphSize - 1][graphSize - 1] != INF) {
+                break;
             }
         }
 
