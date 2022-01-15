@@ -45,12 +45,12 @@ public class Main {
     }
 
     public int solution(String s) {
-        int answer = Integer.MAX_VALUE;
+        int answer = s.length();
 
         /* 문자열 하나일때 체크 */
-        if (s.length() == 1) {
-            return 1;
-        }
+//        if (s.length() == 1) {
+//            return 1;
+//        }
 
         /* 반복 문자열 개수 1부터 s.length() / 2 까지 */
         for (int i = 1; i <= s.length() / 2; i++) {
