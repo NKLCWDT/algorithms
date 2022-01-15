@@ -134,7 +134,7 @@ public class Main {
         /* 우선순위 큐 선언 */
         PriorityQueue<MarsNode> pq = new PriorityQueue<>();
 
-        /* 시작 노드로 가기 위한 최단 경로는 0으로 설정하여, 큐에 삽입 */
+        /* 시작 노드로 가기 위한 최단 경로는 현재의 값으로 설정하고 큐에 삽입 */
         distance[x][y] = graph[x][y];
         pq.offer(new MarsNode(x, y, distance[x][y]));
 
