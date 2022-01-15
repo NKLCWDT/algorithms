@@ -171,6 +171,11 @@ public class Main {
                         pq.add(new MarsNode(nx, ny, distance[nx][ny]));
                     }
                 }
+
+                // 결과 지점이 셋팅되었다면 break;
+                if (distance[N - 1][N - 1] != INF) {
+                    break;
+                }
             }
         }
 
