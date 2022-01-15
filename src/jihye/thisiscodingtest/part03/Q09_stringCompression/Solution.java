@@ -25,7 +25,7 @@ public class Solution {
             check = false;
         }
 
-        if(ans == Integer.MAX_VALUE){
+        if (ans == Integer.MAX_VALUE) {
             return s.length();
         }
         return ans;
@@ -44,17 +44,17 @@ public class Solution {
             if (count != 1) {//count가 2이상일때
                 check = true;
                 newString += count + one;//newString에 count와 반복되는 string(one)을 넣는다                System.out.println(newString);
-           } else {
+            } else {
                 newString += one;
             }
-            if (i + unit > s.length()) {
+            if (i + unit > s.length()) {//범위 체크
                 end = i;
                 break;
             }
             one = s.substring(i, i + unit);
 
         }
-        if (end <= s.length()) {
+        if (end <= s.length()) {//만일 남은 unit단위 보다 작은 문자열이 남았을시 더해준다.
             newString += s.substring(end);
         }
         return newString.length();
