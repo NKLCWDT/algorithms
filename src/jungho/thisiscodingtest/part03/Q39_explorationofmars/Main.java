@@ -67,7 +67,7 @@ public class Main {
                 Arrays.fill(shortestPaths[x], INF);
             }
 
-            bfs(graph, shortestPaths);
+            dijkstra(graph, shortestPaths);
         }
     }
 
@@ -78,7 +78,7 @@ public class Main {
      * @param graph
      * @param shortestPaths
      */
-    static void bfs(int[][] graph, int[][] shortestPaths) {
+    static void dijkstra(int[][] graph, int[][] shortestPaths) {
         PriorityQueue<Node> Q = new PriorityQueue<>();
         Q.offer(new Node(0, 0, graph[0][0]));
         shortestPaths[0][0] = graph[0][0];
