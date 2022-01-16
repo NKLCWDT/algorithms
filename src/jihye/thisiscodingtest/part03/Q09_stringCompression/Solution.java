@@ -36,9 +36,8 @@ public class Solution {
         //일치한다면 그 수를 count해서 newString에 넣어준다
         for (int i = unit; i < s.length(); i += unit) {
             int count = 1;
-            boolean equals = s.substring(i, i + unit).equals(oneUnit);
 
-            while (i <= s.length() - unit && equals) {
+            while (isSame(i , s, unit, oneUnit)) {
                 count++;
                 i = i + unit;
             }
@@ -60,5 +59,8 @@ public class Solution {
             compressedString.append(s.substring(end));
         }
         return compressedString.length();
+    }
+    public static boolean isSame(int i , String s, int unit, String oneUnit){
+        return i <= s.length() - unit && s.substring(i, i + unit).equals(oneUnit);
     }
 }
