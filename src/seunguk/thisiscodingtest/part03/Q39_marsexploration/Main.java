@@ -43,15 +43,14 @@ public class Main {
                     arr[j][k] = sc.nextInt();
                 }
             }
-            bfs(0,0);
+            dijkstra(0,0);
             System.out.println(distance[N-1][N-1]);
         }
 
     }
-    private static void bfs(int a, int b) {
+    private static void dijkstra(int a, int b) {
         Queue<Node> queue = new LinkedList<>();
         queue.add(new Node(a,b));
-        visited[a][b] = true;
         distance[a][b] = arr[a][b]; // 시작점은 arr값으로 초기화
 
         while (!queue.isEmpty()) {
