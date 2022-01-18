@@ -23,7 +23,7 @@ class Solution {
     private static final int[] dy = {0, 0, -1, 1};
     private static Set<Robot> path = new HashSet<>();
 
-    private Map<Robot, Integer> dist = new HashMap<>();
+    private Map<Robot, Integer> distanceByRobot = new HashMap<>();
 
     class Node {
         private int x;
@@ -56,26 +56,9 @@ class Solution {
         public boolean isFinished(int[][] board) {
             return (this.x == (board.length - 1)) && (this.y == (board.length - 1));
         }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "x=" + x +
-                    ", y=" + y +
-                    '}';
-        }
     }
 
     class Robot {
-        @Override
-        public String toString() {
-            return "Robot{" +
-                    "left=" + left +
-                    ", right=" + right +
-                    ", state=" + state +
-                    '}';
-        }
-
         private Node left;
         private Node right;
         private int state;
@@ -232,13 +215,13 @@ class Solution {
     private int bfs(int[][] board, Robot robot) {
         Queue<Robot> Q = new LinkedList<>();
         Q.add(robot);
-        dist.put(robot, 0);
+        distanceByRobot.put(robot, 0);
         int result = Integer.MAX_VALUE;
 
         while (!Q.isEmpty()) {
             Robot poll = Q.poll();
             if (poll.isFinished(board)) {
-                return dist.get(poll);
+                return distanceByRobot.get(poll);
             }
             for (int i = 0; i < 4; i++) {
                 int nextLeftX = poll.getLeft().getX() + dx[i];
@@ -250,7 +233,7 @@ class Solution {
                 if (isMovable(board, next)) {
                     path.add(next);
                     Q.add(next);
-                    dist.put(next, dist.get(poll) + 1);
+                    distanceByRobot.put(next, distanceByRobot.get(poll) + 1);
                 }
             }
 
@@ -260,7 +243,7 @@ class Solution {
                     if (visited(path, next)) continue;
                     path.add(next);
                     Q.add(next);
-                    dist.put(next, dist.get(poll) + 1);
+                    distanceByRobot.put(next, distanceByRobot.get(poll) + 1);
                 }
             }
         }
