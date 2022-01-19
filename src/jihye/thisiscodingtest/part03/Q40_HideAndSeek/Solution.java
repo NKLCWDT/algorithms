@@ -13,7 +13,7 @@ class Node {
 
 public class Solution {
 
-    public static ArrayList[] graph;
+    public static ArrayList<Node>[] graph;
     public static boolean[] visited;
     public static int INF = Integer.MAX_VALUE;
     public static int[] distance;
@@ -61,12 +61,12 @@ public class Solution {
             }
             check[cur] = true;
 
-//            for (Node node : graph[cur]) {//list에서 node를 하나씩 꺼내서
-//                if (dist[node.end] > dist[cur] + node.weight) {//만일 현재 노드를 거쳐서 가는 경우가 더 짧은경우
-//                    dist[node.end] = dist[cur] + node.weight;//거리를 더 짧은 걸로 업데이트후
-//                    queue.add(new Node(node.end, dist[node.end]));//큐에 더해준다
-//                }
-//            }
+            for (Node node : graph[cur]) {//list에서 node를 하나씩 꺼내서
+                if (dist[node.end] > dist[cur] + node.weight) {//만일 현재 노드를 거쳐서 가는 경우가 더 짧은경우
+                    dist[node.end] = dist[cur] + node.weight;//거리를 더 짧은 걸로 업데이트후
+                    queue.add(new Node(node.end, dist[node.end]));//큐에 더해준다
+                }
+            }
         }
     }
 }
