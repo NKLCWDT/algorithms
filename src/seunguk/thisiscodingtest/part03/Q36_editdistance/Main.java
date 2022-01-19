@@ -31,7 +31,7 @@ public class Main {
                 }
                 // 문자가 다르다면 3가지 경우 중에서 최소값 찾기
                 else { // 삽입(왼쪽), 삭제(위쪽), 교체(왼쪽 위) 중에서 최소 비용을 찾아 대입
-                    dp[i][j] = Math.min(dp[i][j-1], Math.min(dp[i][j-1], dp[i-1][j-1])) + 1;
+                    dp[i][j] = Math.min(dp[i][j-1], Math.min(dp[i-1][j], dp[i-1][j-1])) + 1;
                 }
             }
         }
