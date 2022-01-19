@@ -9,6 +9,8 @@ import java.util.Queue;
 (1,1)(1,2)
 왼쪽 (1,1)의 아래 (2,1)이 0이라면 -> 회전 가능 -> (1,2)(2,2) :대각선 이동
 (1,1) -> (2,2) 이동인건데. 하 -> 우 로 이동
+
+https://www.youtube.com/watch?v=Lz8naSJIMu8
  */
 public class MainFail {
     static int n;
